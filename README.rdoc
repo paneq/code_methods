@@ -1,32 +1,52 @@
 = code_methods
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/paneq/code_methods
 
 == DESCRIPTION:
 
-FIX (describe your package)
+ Generate class methods based on table contents
+
+ Use when you want to have easy access to some dictionary
+ that is stored in database via generated methods.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* One line of code required to enable this feature
+* Possible to change column based on which methods are generated (default: 'code')
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  class PaymentType < ActiveRecord::Base
+    include CodeMethods.based_on(:code)
+  end
+
+  Result:
+
+  If your payment_types database table has column named 'code' and is populated with
+  three records whose codes are: 'ADJUSTMENT', 'MONTHLY_FEE' and 'PENALTY' then
+  such methods will be generated
+
+  PaymentType.ADJUSTMENT
+  PaymentType.MONTHLY_FEE
+  PaymentType.PENALTY
+
+  Calling method PaymentType.PENALTY is equal to calling
+  Payment.find_by_code('PENALTY')
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* active_record
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* gem sources -a http://gems.github.com (you only have to do this once)
+* sudo gem install paneq-code_methods
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 Robert Pankowecki
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
