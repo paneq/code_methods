@@ -31,7 +31,7 @@
   PaymentType.PENALTY
 
   Calling method PaymentType.PENALTY is equal to calling
-  Payment.find_by_code('PENALTY')
+  PaymentType.find_by_code('PENALTY')
 
 == REQUIREMENTS:
 
