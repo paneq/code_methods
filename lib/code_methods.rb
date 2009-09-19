@@ -20,7 +20,7 @@ $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname
 # PaymentType.PENALTY
 #
 # Calling method PaymentType.PENALTY is equal to calling
-# Payment.find_by_code('PENALTY')
+# PaymentType.find_by_code('PENALTY')
 # 
 module CodeMethods
   VERSION = '1.0.0'
